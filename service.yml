@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: erplyapp-service
+spec:
+  selector:
+    app: erplyapp 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 3000
+    nodePort: 31000
