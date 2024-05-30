@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erplyapp-deployment
+  labels:
+    app: erplyapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: erplyapp
+  template:
+    metadata:
+      labels:
+        app: erplyapp
+    spec:
+      containers:
+      - name: nodeserver
+        image: raydebillion/erplyapp:latest
+        ports:
+        - containerPort: 3000
