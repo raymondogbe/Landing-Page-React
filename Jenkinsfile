@@ -19,7 +19,7 @@ pipeline {
     stage('Run Docker Container') {
             steps {
                 // Run the Docker container from the built image
-              sh "docker run -dit -p 80:80 --name erply_app erplyapp:${BUILD_NUMBER}"
+              sh "docker run -dit -p 80:80 --name erply_app erplyapp"
                 }
             }
     stage('Docker Login') {
