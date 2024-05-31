@@ -2,10 +2,10 @@
 FROM node:14 as builder
 
 # Set the working directory inside the container
-WORKDIR /app/
+WORKDIR /app
 
 # Copy package.json and package-lock.json into the working directory
-COPY package*.json .
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
