@@ -37,10 +37,15 @@ pipeline {
         sh "docker push raydebillion/erplyapp:${BUILD_NUMBER}"
       }
     }
-  }
-  post {
-    always {
-      sh "docker logout"
+   stage('Deploying React App to Kubernetes') {
+      steps {
+        script {
+          sh ('aws eks update-kubeconfig --name erply_reactapp --region us-west-1')
+          sh "kubectl get ns"
+          sh "kubectl apply -f deployment.yaml"
+          sh "kubectl apply -f service.yaml"
+        }
+      }
     }
   }
 }
