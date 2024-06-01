@@ -7,7 +7,6 @@ spec:
     app: erplyapp 
   type: LoadBalancer
   ports:
-  - protocol: TCP
-    port: 5000
+  - name: http
+    port: 80
     targetPort: 3000
-    nodePort: 31000
