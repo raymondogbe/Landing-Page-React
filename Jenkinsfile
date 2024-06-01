@@ -16,12 +16,12 @@ pipeline {
               sh "docker build -t  erplyapp . "
             }
         }
-    stage('Run Docker Container') {
-            steps {
+    //stage('Run Docker Container') {
+            //steps {
                 // Run the Docker container from the built image
-              sh "docker run -dit -p 80:80 --name erply_app erplyapp"
-                }
-            }
+              //sh "docker run -dit -p 80:80 --name erply_app erplyapp"
+               // }
+           // }
     stage('Docker Login') {
       steps {
         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
@@ -42,8 +42,8 @@ pipeline {
         script {
           sh ('aws eks update-kubeconfig --name erply_kubernetes --region us-west-1')
           sh "kubectl get ns"
+	  sh "kubectl apply -f service.yaml"
           sh "kubectl apply -f deployment.yaml"
-          sh "kubectl apply -f service.yaml"
         }
       }
     }
