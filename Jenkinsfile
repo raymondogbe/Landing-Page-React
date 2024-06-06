@@ -42,8 +42,8 @@ pipeline {
         script {
           //sh ('aws eks update-kubeconfig --name erply --region us-west-1')
           //sh "kubectl get ns"
-	  sh "kubectl apply -f service.yaml"
-          sh "kubectl apply -f deployment.yaml"
+	  sh "kubectl apply -f service.yml"
+          sh "kubectl apply -f deployment.yml"
         }
       }
     }
