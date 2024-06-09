@@ -1,3 +1,4 @@
+#!/bin/bash
 # Use the official Node.js image as a base
 FROM node:14 as builder
 
