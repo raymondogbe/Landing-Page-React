@@ -20,6 +20,6 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build -t new_earplyapp .
+      run: docker build -t new_erplyapp .
     - name: Push to Dockerhub
-      run: docker push raydebillion/new_earplyapp
+      run: docker push raydebillion/new_erplyapp
