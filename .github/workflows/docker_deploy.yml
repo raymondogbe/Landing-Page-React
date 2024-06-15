@@ -20,6 +20,6 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD #--password-stdin
     - name: pull Docker image
-      run: sudo docker pull raydebillion/new_erply
+      run: sudo docker pull raydebillion/newerply
     - name: Docker run
-      run: sudo docker run -dit -p 8080:8080 --name erplyapp raydebillion/new_erply
+      run: sudo docker run -dit -p 8080:8080 --name erplyapp raydebillion/newerply
