@@ -22,4 +22,4 @@ jobs:
     - name: pull Docker image
       run: sudo docker pull raydebillion/newerply
     - name: Docker run
-      run: sudo docker run -dit -p 8080:8080 --name erplyapp raydebillion/newerply
+      run: sudo docker run -dit -p 8080:8080 --name erply_app raydebillion/newerply
