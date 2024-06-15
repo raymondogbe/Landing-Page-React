@@ -10,8 +10,8 @@ jobs:
 
   build:
 
-    #runs-on: self-hosted
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    #runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -21,8 +21,8 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD #--password-stdin
     - name: Build the Docker image
-      run: docker build -t raydebillion/new_erply .
+      run: docker build -t raydebillion/newerply .
    # - name: Docker tag
    #   run: docker tag new_erplyapp raydebillion/new_erplyapp
     - name: Push to Dockerhub
-      run: docker push raydebillion/new_erply
+      run: docker push raydebillion/newerply
