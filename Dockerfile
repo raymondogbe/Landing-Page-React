@@ -25,3 +25,4 @@ COPY --from=builder /app/build /usr/share/nginx/html
 
 # Expose port 80 to the outside world (default for HTTP)
 EXPOSE 80
+#CMD ["npm", "start"]
