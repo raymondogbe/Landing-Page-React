@@ -6,7 +6,7 @@ FROM node:14 as builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json into the working directory
-COPY package*.json ./
+COPY ./package*.json ./
 
 # Install dependencies
 RUN npm install
@@ -18,11 +18,14 @@ COPY . .
 RUN npm run build
 
 # Use NGINX as a lightweight base image to serve the app
-FROM nginx:alpine
+FROM nginx
 
 # Copy the built app from the previous stage
 COPY --from=builder /app/build /usr/share/nginx/html
 
+# Copying our nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Expose port 80 to the outside world (default for HTTP)
-EXPOSE 80
+#EXPOSE 80
 #CMD ["npm", "start"]
