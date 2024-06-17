@@ -40,7 +40,7 @@ pipeline {
    stage('Deploying React App to Kubernetes') {
       steps {
         script {
-          sh ('aws eks update-kubeconfig --name erply --region us-west-1')
+          sh ('aws eks update-kubeconfig --name erply-test-cluster --region us-west-1')
           sh "kubectl get ns"
 	  sh "kubectl apply -f service.yml"
           sh "kubectl apply -f deployment.yml"
