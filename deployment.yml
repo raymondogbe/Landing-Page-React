@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: raydebillion/erplyapp:1
+        image: raydebillion/erplyapp:2
         ports:
         - containerPort: 80
